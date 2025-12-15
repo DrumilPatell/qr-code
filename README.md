@@ -2,6 +2,10 @@
 
 A simple and elegant web-based QR code generator built with Flask and Python. Generate QR codes for any URL with a beautiful, responsive user interface.
 
+## Live Demo
+
+🌐 **[Try it now - Live Preview](https://qr-code-sand-iota.vercel.app/)** - Available 24/7
+
 ## Features
 
 - 🎨 Modern and responsive web interface
