@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, send_file, Response
 import qrcode
 import io
-from datetime import datetime
 
 app = Flask(__name__)
 
@@ -24,21 +23,6 @@ def generate_qr():
     img.save(img_io, 'PNG')
     img_io.seek(0)
     return send_file(img_io, mimetype='image/png', as_attachment=True, download_name='qrcode.png')
-
-@app.route('/sitemap.xml')
-def sitemap():
-    """Generate sitemap for search engines"""
-    today = datetime.now().strftime('%Y-%m-%d')
-    sitemap_xml = f'''<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://qr-code-sand-iota.vercel.app/</loc>
-        <lastmod>{today}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
-</urlset>'''
-    return Response(sitemap_xml, content_type='application/xml')
 
 @app.route('/robots.txt')
 def robots():
