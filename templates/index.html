@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Generator</title>
+    <title>Free Online QR Code Generator | Instant Download</title>
+    <meta name="description" content="Generate free QR codes instantly with this online QR code generator. Create and download high-quality QR codes for any URL on desktop or mobile.">
+    <meta name="keywords" content="qr code generator, free qr code maker, download qr code, qr code for url">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://qr-code-sand-iota.vercel.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Online QR Code Generator | Instant Download">
+    <meta property="og:description" content="Create and download QR codes in seconds. Works on mobile and desktop with no sign-up required.">
+    <meta property="og:url" content="https://qr-code-sand-iota.vercel.app/">
+    <meta property="og:image" content="{{ url_for('static', filename='preview.svg', _external=True) }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Online QR Code Generator">
+    <meta name="twitter:description" content="Generate high-quality QR codes for any link and download them instantly.">
+    <meta name="twitter:image" content="{{ url_for('static', filename='preview.svg', _external=True) }}">
+    <meta name="author" content="Drumil Patel">
+    <meta name="theme-color" content="#667eea">
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicon.svg') }}">
     <style>
         * {
             margin: 0;
@@ -15,70 +32,71 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 20px;
         }
 
         .container {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 500px;
+            background: #ffffff;
+            max-width: 960px;
             width: 100%;
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 30px 80px rgba(22, 26, 66, 0.25);
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .hero {
+            text-align: center;
+            display: grid;
+            gap: 24px;
         }
 
         h1 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 10px;
-            font-size: 2em;
+            color: #2d2f55;
+            font-size: 2.2em;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 14px;
         }
 
         .qr-logo {
-            width: 45px;
-            height: 45px;
+            width: 48px;
+            height: 48px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 8px;
+            border-radius: 10px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(3, 1fr);
-            gap: 2px;
-            padding: 5px;
+            gap: 3px;
+            padding: 6px;
         }
 
         .qr-logo span {
-            background: white;
+            background: #ffffff;
             border-radius: 2px;
         }
 
-        .qr-logo span:nth-child(1),
-        .qr-logo span:nth-child(3),
-        .qr-logo span:nth-child(5),
-        .qr-logo span:nth-child(7),
-        .qr-logo span:nth-child(9) {
-            background: white;
-        }
-
-        p {
+        .lead {
             text-align: center;
-            color: #666;
-            margin-bottom: 30px;
+            color: #52546e;
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
 
         .form-group {
             margin-bottom: 20px;
+            text-align: left;
         }
 
         label {
             display: block;
-            color: #333;
+            color: #2d2f55;
             font-weight: 600;
             margin-bottom: 8px;
         }
@@ -90,15 +108,16 @@
         input[type="text"] {
             width: 100%;
             padding: 12px 40px 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
+            border: 2px solid #dfe3ff;
+            border-radius: 12px;
             font-size: 16px;
-            transition: border-color 0.3s;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
 
         input[type="text"]:focus {
             outline: none;
             border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
         }
 
         .clear-btn {
@@ -108,19 +127,18 @@
             transform: translateY(-50%);
             background: none;
             border: none;
-            color: #999;
+            color: #9aa0d8;
             cursor: pointer;
             font-size: 20px;
             padding: 5px;
             display: none;
             width: auto;
-            transition: color 0.2s;
+            transition: color 0.2s, transform 0.2s;
         }
 
         .clear-btn:hover {
             color: #667eea;
             transform: translateY(-50%) scale(1.1);
-            box-shadow: none;
         }
 
         .clear-btn.show {
@@ -131,9 +149,9 @@
             width: 100%;
             padding: 14px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            color: #ffffff;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             font-size: 18px;
             font-weight: 600;
             cursor: pointer;
@@ -142,61 +160,272 @@
 
         button[type="submit"]:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 18px 35px rgba(102, 126, 234, 0.35);
         }
 
         button[type="submit"]:active {
             transform: translateY(0);
         }
 
-        .footer {
+        .trust-note {
+            font-size: 0.95rem;
+            color: #7a7dab;
+        }
+
+        .content {
+            display: grid;
+            gap: 28px;
+        }
+
+        .section {
+            background: #f7f8ff;
+            border-radius: 20px;
+            padding: 24px 28px;
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.15);
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: #2d2f55;
+            margin-bottom: 16px;
+        }
+
+        .section p {
+            color: #3f4160;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .feature-list,
+        .steps {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 12px;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 30px;
+            color: #3f4160;
+            line-height: 1.6;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .steps {
+            counter-reset: step;
+        }
+
+        .steps li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #3f4160;
+        }
+
+        .steps li::before {
+            counter-increment: step;
+            content: counter(step);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            width: 32px;
+            height: 32px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            font-weight: 600;
+        }
+
+        .faq details {
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px solid #dfe3ff;
+            padding: 16px 20px;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.12);
+        }
+
+        .faq summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: #2d2f55;
+            outline: none;
+        }
+
+        .faq summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq summary::after {
+            content: "+";
+            float: right;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .faq details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .faq p {
+            margin-top: 12px;
+            margin-bottom: 0;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            color: #ffffff;
             text-align: center;
-            margin-top: 20px;
-            color: #999;
-            font-size: 14px;
+        }
+
+        .cta-section .section-title {
+            color: #ffffff;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-section a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .site-footer {
+            text-align: center;
+            color: #7a7dab;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 720px) {
+            body {
+                padding: 24px 16px;
+            }
+
+            .container {
+                padding: 32px 24px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .qr-logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            .section {
+                padding: 20px 18px;
+            }
+
+            .steps li {
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>
-            <div class="qr-logo">
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-            </div>
-            QR Code Generator
-        </h1>
-        <p>Enter any URL to generate a QR code</p>
-        
-        <form action="/generate" method="POST">
-            <div class="form-group">
-                <label for="url">Enter URL:</label>
-                <div class="input-wrapper">
-                    <input 
-                        type="text" 
-                        id="url" 
-                        name="url" 
-                        placeholder="https://example.com" 
-                        required
-                    >
-                    <button type="button" class="clear-btn" id="clearBtn">✕</button>
+        <header class="hero" id="home">
+            <h1>
+                <div class="qr-logo">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
                 </div>
-            </div>
-            <button type="submit">Generate & Download QR Code</button>
-        </form>
-        
-        <div class="footer">
-            Your QR code will download automatically
-        </div>
+                QR Code Generator
+            </h1>
+            <p class="lead">Generate free, high-quality QR codes for any link. Download the PNG file instantly and share it on print, packaging, or social media.</p>
+            <form action="/generate" method="POST">
+                <div class="form-group">
+                    <label for="url">Enter your URL</label>
+                    <div class="input-wrapper">
+                        <input
+                            type="text"
+                            id="url"
+                            name="url"
+                            placeholder="https://example.com"
+                            required
+                            aria-label="URL to convert into a QR code"
+                        >
+                        <button type="button" class="clear-btn" id="clearBtn" aria-label="Clear URL input">✕</button>
+                    </div>
+                </div>
+                <button type="submit">Generate & Download QR Code</button>
+            </form>
+            <p class="trust-note">No sign-up or tracking — paste your link, hit generate, and your QR code downloads right away.</p>
+        </header>
+
+        <main class="content">
+            <section class="section" id="features">
+                <h2 class="section-title">Why Use This Free QR Code Generator?</h2>
+                <ul class="feature-list">
+                    <li>Optimized PNG downloads that scan instantly on iOS, Android, and desktop devices.</li>
+                    <li>Privacy-first: we never store your URLs or generated QR codes.</li>
+                    <li>Mobile-friendly interface, perfect for quick campaigns on the go.</li>
+                    <li>Professional gradient design that builds trust with clients and stakeholders.</li>
+                </ul>
+            </section>
+
+            <section class="section" id="how-it-works">
+                <h2 class="section-title">How It Works</h2>
+                <ol class="steps">
+                    <li>Paste any website, landing page, video, or PDF URL into the field above.</li>
+                    <li>Click the “Generate &amp; Download QR Code” button to create your high-resolution PNG.</li>
+                    <li>Add the QR code to posters, business cards, menus, or packaging — it never expires.</li>
+                </ol>
+            </section>
+
+            <section class="section" id="use-cases">
+                <h2 class="section-title">Perfect for Marketing Campaigns</h2>
+                <p>Send visitors to your product launches, restaurant menus, social profiles, or feedback forms with one scan. Each QR code is crisp, easy to scan, and ready for print or digital use.</p>
+                <p>Pro tip: pair your QR code with a compelling call-to-action, such as “Scan to watch our demo” or “Scan for today’s offers,” to increase conversions.</p>
+            </section>
+
+            <section class="section faq" id="faq">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <details>
+                    <summary>Is this QR code generator really free?</summary>
+                    <p>Yes. You can create unlimited QR codes at no cost. There are no watermarks or hidden fees.</p>
+                </details>
+                <details>
+                    <summary>Will my QR codes expire?</summary>
+                    <p>No. Once you download a QR code it is yours forever. Just make sure the destination URL stays live.</p>
+                </details>
+                <details>
+                    <summary>Can I track scans or customize colors?</summary>
+                    <p>This version focuses on fast, private QR code creation. Advanced features like analytics or custom branding are on the roadmap — keep an eye on future updates.</p>
+                </details>
+            </section>
+
+            <section class="section cta-section" id="cta">
+                <h2 class="section-title">Ready to Share Your Next QR Code?</h2>
+                <p>Generate unlimited QR codes for free. Bookmark this tool or <a href="https://qr-code-sand-iota.vercel.app/" rel="noopener" title="QR Code Generator live preview">share the live site</a> with your team.</p>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            &copy; 2025 Drumil Patel. Built with Flask and the open source qrcode library.
+        </footer>
     </div>
 
     <script>
         const urlInput = document.getElementById('url');
         const clearBtn = document.getElementById('clearBtn');
 
-        // Show/hide clear button based on input content
-        urlInput.addEventListener('input', function() {
+        // Show or hide the clear button based on user input
+        urlInput.addEventListener('input', function () {
             if (this.value.length > 0) {
                 clearBtn.classList.add('show');
             } else {
@@ -204,12 +433,46 @@
             }
         });
 
-        // Clear input when button is clicked
-        clearBtn.addEventListener('click', function() {
+        // Clear the input field and refocus when the button is clicked
+        clearBtn.addEventListener('click', function () {
             urlInput.value = '';
             clearBtn.classList.remove('show');
             urlInput.focus();
         });
+    </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "QR Code Generator",
+            "url": "https://qr-code-sand-iota.vercel.app/",
+            "description": "Generate free QR codes instantly with this online QR code generator. Create and download high-quality QR codes for any URL on desktop or mobile.",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Web",
+            "browserRequirements": "Requires JavaScript and a modern web browser.",
+            "inLanguage": "en",
+            "image": "{{ url_for('static', filename='preview.svg', _external=True) }}",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Drumil Patel",
+                "url": "https://github.com/DrumilPatell"
+            },
+            "sameAs": [
+                "https://qr-code-sand-iota.vercel.app/",
+                "https://github.com/DrumilPatell/qr-code"
+            ],
+            "featureList": [
+                "Instant QR code generator",
+                "High-quality PNG downloads",
+                "Works on desktop and mobile"
+            ]
+        }
     </script>
 </body>
 </html>
