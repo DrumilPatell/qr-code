@@ -38,7 +38,7 @@ def sitemap():
         <priority>1.0</priority>
     </url>
 </urlset>'''
-    return Response(sitemap_xml, mimetype='application/xml')
+    return Response(sitemap_xml, content_type='application/xml')
 
 @app.route('/robots.txt')
 def robots():
@@ -46,7 +46,7 @@ def robots():
     robots_txt = '''User-agent: *
 Allow: /
 Sitemap: https://qr-code-sand-iota.vercel.app/sitemap.xml'''
-    return Response(robots_txt, mimetype='text/plain')
+    return Response(robots_txt, content_type='text/plain')
 
 if __name__ == '__main__':
     app.run(debug=True)
