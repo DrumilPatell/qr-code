@@ -49,5 +49,4 @@ Sitemap: https://qr-code-sand-iota.vercel.app/sitemap.xml'''
     return Response(robots_txt, mimetype='text/plain')
 
 if __name__ == '__main__':
-    app.run(debug=True)_':
     app.run(debug=True)
