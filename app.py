@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, send_file, Response, send_from_directory
 import qrcode
 import io
-import os
 
 app = Flask(__name__)
 
