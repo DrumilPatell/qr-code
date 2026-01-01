@@ -31,8 +31,10 @@ def sitemap():
 
 @app.route('/favicon.ico')
 def favicon():
-    """Redirect favicon requests to the SVG version"""
-    return send_from_directory('static', 'favicon.svg', mimetype='image/svg+xml')
+    try:
+        return send_from_directory('static', 'favicon.ico', mimetype='image/x-icon')
+    except:
+        return send_from_directory('static', 'favicon.svg', mimetype='image/svg+xml')
 
 @app.route('/robots.txt')
 def robots():
