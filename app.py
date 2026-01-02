@@ -26,7 +26,7 @@ def generate_qr():
 
 @app.route('/sitemap.xml')
 def sitemap():
-    return send_from_directory('static', 'sitemap.xml', mimetype='application/xml')
+    return send_from_directory('.', 'sitemap.xml', mimetype='application/xml')
 
 @app.route('/favicon.ico')
 def favicon():
