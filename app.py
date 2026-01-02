@@ -24,10 +24,6 @@ def generate_qr():
     img_io.seek(0)
     return send_file(img_io, mimetype='image/png', as_attachment=True, download_name='qrcode.png')
 
-@app.route('/sitemap.xml')
-def sitemap():
-    return send_from_directory('.', 'sitemap.xml', mimetype='application/xml')
-
 @app.route('/favicon.ico')
 def favicon():
     try:
