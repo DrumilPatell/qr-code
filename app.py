@@ -31,6 +31,10 @@ def favicon():
     except:
         return send_from_directory('static', 'favicon.svg', mimetype='image/svg+xml')
 
+@app.route('/sitemap.xml')
+def sitemap():
+    return send_from_directory('.', 'sitemap.xml', mimetype='application/xml')
+
 @app.route('/robots.txt')
 def robots():
     """Generate robots.txt to guide search engine crawlers"""
