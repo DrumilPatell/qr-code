@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Online QR Code Generator | Instant Download</title>
-    <meta name="description" content="Generate free QR codes instantly with this online QR code generator. Create and download high-quality QR codes for any URL on desktop or mobile.">
-    <meta name="keywords" content="qr code generator, free qr code maker, download qr code, qr code for url">
+    <title>Free QR Code Generator - Instant Download | Create QR Codes Online</title>
+    <meta name="description" content="Free online QR code generator. Create and download high-quality QR codes instantly for any URL. Works on all devices, no sign-up required.">
     <meta name="robots" content="index, follow">
-    <meta name="google-site-verification" content="27K1_UFaM2lXTKFoF0qKTC-m0SfgOVSlkIjmydM10VY" />
+    <meta name="google-site-verification" content="27K1_UFaM2lXTKFoF0qKTC-m0SfgOVSlkIjmydM10VY">
+    <meta name="msvalidate.01" content="7048D7DAE3BE088955906D43FB5F68BD">
     <link rel="canonical" href="https://qr-code-sand-iota.vercel.app/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Free Online QR Code Generator | Instant Download">
+    <meta property="og:title" content="Free QR Code Generator - Instant Download">
     <meta property="og:description" content="Create and download QR codes in seconds. Works on mobile and desktop with no sign-up required.">
     <meta property="og:url" content="https://qr-code-sand-iota.vercel.app/">
     <meta property="og:image" content="{{ url_for('static', filename='preview.svg', _external=True) }}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Free Online QR Code Generator">
+    <meta name="twitter:title" content="Free QR Code Generator">
     <meta name="twitter:description" content="Generate high-quality QR codes for any link and download them instantly.">
-    <meta name="msvalidate.01" content="7048D7DAE3BE088955906D43FB5F68BD" />
     <meta name="twitter:image" content="{{ url_for('static', filename='preview.svg', _external=True) }}">
     <meta name="author" content="Drumil Patel">
     <meta name="theme-color" content="#667eea">
-    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.svg') }}">
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicon.svg') }}">
     <style>
         * {
@@ -406,8 +405,44 @@
                     <p>No. Once you download a QR code it is yours forever. Just make sure the destination URL stays live.</p>
                 </details>
                 <details>
+                    <summary>What devices can scan my QR codes?</summary>
+                    <p>All modern smartphones with cameras can scan QR codes. Both iPhone (iOS 11+) and Android devices have built-in QR code readers in their camera apps. No special app required.</p>
+                </details>
+                <details>
+                    <summary>What file format do I get when I download?</summary>
+                    <p>Your QR code downloads as a high-quality PNG image file. This format works perfectly for both digital sharing and professional printing.</p>
+                </details>
+                <details>
+                    <summary>Can I use QR codes for commercial purposes?</summary>
+                    <p>Absolutely! Use them on business cards, product packaging, advertisements, restaurant menus, event tickets, or any marketing materials. There are no usage restrictions.</p>
+                </details>
+                <details>
+                    <summary>How do I make sure my QR code works?</summary>
+                    <p>After downloading, simply scan it with your phone's camera to verify it directs to the correct URL. Test on both iPhone and Android devices before printing in bulk.</p>
+                </details>
+                <details>
+                    <summary>What types of URLs can I convert to QR codes?</summary>
+                    <p>Any valid URL works: websites, YouTube videos, Google Forms, PDF documents, social media profiles, Google Maps locations, and more. Just paste the link and generate.</p>
+                </details>
+                <details>
+                    <summary>Do I need to create an account?</summary>
+                    <p>No account needed. Simply enter your URL and download your QR code instantly. We don't store your data or require registration.</p>
+                </details>
+                <details>
                     <summary>Can I track scans or customize colors?</summary>
                     <p>This version focuses on fast, private QR code creation. Advanced features like analytics or custom branding are on the roadmap — keep an eye on future updates.</p>
+                </details>
+                <details>
+                    <summary>How big should I print my QR code?</summary>
+                    <p>For reliable scanning, print QR codes at least 2x2 cm (0.8x0.8 inches). Larger is better for distant scanning. The PNG file scales perfectly to any size.</p>
+                </details>
+                <details>
+                    <summary>Are QR codes secure?</summary>
+                    <p>QR codes themselves are just links encoded visually. Always scan codes from trusted sources. This generator creates standard QR codes with no malicious code or tracking.</p>
+                </details>
+                <details>
+                    <summary>Can I edit a QR code after creating it?</summary>
+                    <p>Static QR codes (like ours) cannot be edited once created. If you need to change the destination URL, simply generate a new QR code with the updated link.</p>
                 </details>
             </section>
 
@@ -444,37 +479,28 @@
     </script>
 
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            "name": "QR Code Generator",
-            "url": "https://qr-code-sand-iota.vercel.app/",
-            "description": "Generate free QR codes instantly with this online QR code generator. Create and download high-quality QR codes for any URL on desktop or mobile.",
-            "applicationCategory": "UtilitiesApplication",
-            "operatingSystem": "Web",
-            "browserRequirements": "Requires JavaScript and a modern web browser.",
-            "inLanguage": "en",
-            "image": "{{ url_for('static', filename='preview.svg', _external=True) }}",
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-            },
-            "author": {
-                "@type": "Person",
-                "name": "Drumil Patel",
-                "url": "https://github.com/DrumilPatell"
-            },
-            "sameAs": [
-                "https://qr-code-sand-iota.vercel.app/",
-                "https://github.com/DrumilPatell/qr-code"
-            ],
-            "featureList": [
-                "Instant QR code generator",
-                "High-quality PNG downloads",
-                "Works on desktop and mobile"
-            ]
-        }
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "QR Code Generator",
+  "url": "https://qr-code-sand-iota.vercel.app/",
+  "description": "Free online QR code generator. Create and download high-quality QR codes instantly for any URL. Works on all devices, no sign-up required.",
+  "applicationCategory": "Utility",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "inLanguage": "en",
+  "image": "{{ url_for('static', filename='preview.svg', _external=True) }}",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Drumil Patel",
+    "url": "https://github.com/DrumilPatell"
+  }
+}
     </script>
 </body>
 </html>
