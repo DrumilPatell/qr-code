@@ -20,8 +20,31 @@
     <meta name="twitter:image" content="{{ url_for('static', filename='preview.svg', _external=True) }}">
     <meta name="author" content="Drumil Patel">
     <meta name="theme-color" content="#667eea">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.svg') }}">
-    <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/static/favicon.svg">
+    <link rel="manifest" href="/static/manifest.json">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "QR Code Generator",
+  "description": "Free online QR code generator. Create and download high-quality QR codes instantly for any URL with no sign-up required.",
+  "url": "https://qr-code-sand-iota.vercel.app/",
+  "applicationCategory": "Utility",
+  "operatingSystem": "All",
+  "image": "/static/preview.svg",
+  "icon": "/static/favicon.svg",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Drumil Patel"
+  }
+}
+    </script>
     <style>
         * {
             margin: 0;
@@ -516,31 +539,6 @@
             clearBtn.classList.remove('show');
             urlInput.focus();
         });
-    </script>
-
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "QR Code Generator",
-  "url": "https://qr-code-sand-iota.vercel.app/",
-  "description": "Free online QR code generator. Create and download high-quality QR codes instantly for any URL. Works on all devices, no sign-up required.",
-  "applicationCategory": "Utility",
-  "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript",
-  "inLanguage": "en",
-  "image": "{{ url_for('static', filename='preview.svg', _external=True) }}",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "Drumil Patel",
-    "url": "https://github.com/DrumilPatell"
-  }
-}
     </script>
 </body>
 </html>
